@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Walmart Sales Prediction</title>
+    <link rel="stylesheet" href = "{{ url_for('static', filename='css/index.css')}}">
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -52,7 +53,7 @@
 
 
         <label for="size">Size:</label>
-        <input type="tenumberxt" id="size" /><br /><br /><br />
+        <input type="number" id="size" /><br /><br /><br />
 
         <label for="department">Department:</label>
         <input type="number" id="department" /><br /><br /><br />
@@ -60,19 +61,18 @@
         <label for="temperature">Temperature:</label>
         <input type="number" id="temperature" /><br /><br /><br />
 
-        <label for="datePicker">Date:</label>
-        <input type="number" id="datePicker" /><br /><br /><br />
+        <label for="datePicker"> Date:</label>
+        <input type="date" id="datePicker"><br><br /><br /><br />
 
         <label for="isHoliday">Is Holiday:</label>
         <input type="radio" id="isHolidayYes" name="isHoliday" value="Yes" /> Yes
         <input type="radio" id="isHolidayNo" name="isHoliday" value="No" /> No
         <br /><br />
 <br />
-        <button type="submit" class="button">Predict</button>
+         <button onclick="predictSales()" class="button">Predict</button
       </form>
 
-      <div id="inputValues"></div>
-      <div id="result"></div>
+      
     </div>
 
     <script>
@@ -94,6 +94,16 @@
         const randomSales = Math.floor(Math.random() * 100000);
         document.getElementById("result").innerText = `Predicted Sales: $${randomSales}`;
       }
+
+            // You can use JavaScript to add additional functionality if needed.
+        const datePicker = document.getElementById('datePicker');
+
+        // Example: Add an event listener to the date input
+        datePicker.addEventListener('change', function() {
+            const selectedDate = this.value;
+            console.log('Selected Date:', selectedDate);
+        });
+
     </script>
   </body>
 </html>
