@@ -2,13 +2,12 @@
 <html>
   <head>
     <title>Walmart Sales Prediction</title>
-    <link rel="stylesheet" href = "{{ url_for('static', filename='css/index.css')}}">
     <style>
       body {
         font-family: Arial, sans-serif;
         text-align: center;
         background-image: url("https://c4.wallpaperflare.com/wallpaper/253/638/452/light-background-hd-wallpaper-preview.jpg");
-        background-repeat: repeat-x;
+        
         background-size: 100%;
         color: #ffffff; /* Changing font color for better visibility */
       }
@@ -16,7 +15,7 @@
       #container {
         max-width: 400px;
         margin: 0 auto;
-        margin-top: 10px;
+        margin-top:10px;
       }
 
       #result {
@@ -27,7 +26,7 @@
 
       h1 {
         color: #F875AA;
-        padding-top: 50px;
+        padding-top: 20px;
       }
 
       /* Style the date input */
@@ -44,13 +43,10 @@
   </head>
   <body>
     <h1>Walmart Sales Prediction</h1>
-    <br /><br />
     <div id="container">
       <form onsubmit="event.preventDefault(); predictSales();">
         <label for="store">Store:</label>
         <input type="number" id="store" /><br /><br /><br />
-
-
 
         <label for="size">Size:</label>
         <input type="number" id="size" /><br /><br /><br />
@@ -61,18 +57,19 @@
         <label for="temperature">Temperature:</label>
         <input type="number" id="temperature" /><br /><br /><br />
 
-        <label for="datePicker"> Date:</label>
-        <input type="date" id="datePicker"><br><br /><br /><br />
+        <label for="datePicker">Date:</label>
+        <input type="date" id="datePicker" /><br /><br /><br />
 
         <label for="isHoliday">Is Holiday:</label>
         <input type="radio" id="isHolidayYes" name="isHoliday" value="Yes" /> Yes
         <input type="radio" id="isHolidayNo" name="isHoliday" value="No" /> No
-        <br /><br />
-<br />
-         <button onclick="predictSales()" class="button">Predict</button
+        <br /><br /><br />
+
+        <button type="submit" class="button">Predict</button>
       </form>
 
-      
+      <div id="inputValues"></div>
+      <div id="result"></div>
     </div>
 
     <script>
@@ -86,7 +83,7 @@
 
         const inputValues = document.getElementById("inputValues");
         inputValues.innerHTML = `
-          <p>Predicted weekly sales for Store ${size}, Department ${department}, in the month of ${selectedDate} </p>
+          <p>Predicted  weekly sales ${store}, Department ${department}, in the month of ${selectedDate}</p>
           
         `;
 
@@ -94,16 +91,6 @@
         const randomSales = Math.floor(Math.random() * 100000);
         document.getElementById("result").innerText = `Predicted Sales: $${randomSales}`;
       }
-
-            // You can use JavaScript to add additional functionality if needed.
-        const datePicker = document.getElementById('datePicker');
-
-        // Example: Add an event listener to the date input
-        datePicker.addEventListener('change', function() {
-            const selectedDate = this.value;
-            console.log('Selected Date:', selectedDate);
-        });
-
     </script>
   </body>
 </html>
